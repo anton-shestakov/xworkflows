@@ -50,6 +50,12 @@ class State(object):
     def __repr__(self):
         return '<%s: %r>' % (self.__class__.__name__, self.name)
 
+    def __eq__(self, other):
+        if isinstance(other, State):
+            return self.name == other.name and self.title == other.title
+        else:
+            return self.name == other
+
 
 class StateList(object):
     """A list of states."""
